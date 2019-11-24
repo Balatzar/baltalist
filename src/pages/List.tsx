@@ -129,7 +129,7 @@ const List: React.FC<ListProps> = ({ match }) => {
             })}
         </IonList>
         <IonButton onClick={() => setShowActionSheet(true)} expand="block">
-          Actions
+          More
         </IonButton>
         <IonActionSheet
           isOpen={showActionSheet}
