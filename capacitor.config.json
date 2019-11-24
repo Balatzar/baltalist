@@ -1,0 +1,8 @@
+{
+  "appId": "fr.baltalist.views",
+  "appName": "baltalist",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}

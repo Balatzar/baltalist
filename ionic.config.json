@@ -1,5 +1,7 @@
 {
   "name": "baltalist",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
