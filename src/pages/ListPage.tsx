@@ -27,7 +27,7 @@ interface List {
 
 const ListPage: React.FC = () => {
   const [lists, setLists] = useState<List[]>([]);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const alertInitialAtate = { show: false, header: "", message: "" };
   const [showAlert, setShowAlert] = useState(alertInitialAtate);
   let newName = "";
