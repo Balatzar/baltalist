@@ -60,7 +60,9 @@ const List: React.FC<ListProps> = ({ match }) => {
   const anyEntries = lists[0] && lists[0].entries_id;
 
   useIonViewWillEnter(async () => {
-    const result = await fetch(`http://localhost:3000/lists/${listId}`);
+    const result = await fetch(
+      `https://baltalist-api.herokuapp.com/lists/${listId}`
+    );
     const data = await result.json();
     setlist(data);
   });
@@ -68,13 +70,16 @@ const List: React.FC<ListProps> = ({ match }) => {
   const checkEntry = async (checked: boolean, entryId: string) => {
     console.log("check entry " + entryId);
     console.log("check  " + checked);
-    const result = await fetch(`http://localhost:3000/entries/${entryId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        checked,
-      }),
-    });
+    const result = await fetch(
+      `https://baltalist-api.herokuapp.com/entries/${entryId}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          checked,
+        }),
+      }
+    );
     if (result.ok) {
       setlist(
         lists.map(list => {
@@ -95,9 +100,12 @@ const List: React.FC<ListProps> = ({ match }) => {
 
   const deleteList = async () => {
     console.log("delete list");
-    const result = await fetch(`http://localhost:3000/lists/${listId}`, {
-      method: "DELETE",
-    });
+    const result = await fetch(
+      `https://baltalist-api.herokuapp.com/lists/${listId}`,
+      {
+        method: "DELETE",
+      }
+    );
     if (result.ok) {
       history.push("/lists");
     } else {
@@ -111,7 +119,7 @@ const List: React.FC<ListProps> = ({ match }) => {
 
   const addEntry = async () => {
     console.log("add entry " + newEntry);
-    const result = await fetch(`http://localhost:3000/entries/`, {
+    const result = await fetch(`https://baltalist-api.herokuapp.com/entries/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

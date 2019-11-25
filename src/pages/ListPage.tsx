@@ -33,13 +33,13 @@ const ListPage: React.FC = () => {
   let newName = "";
 
   useIonViewWillEnter(async () => {
-    const result = await fetch("http://localhost:3000/lists");
+    const result = await fetch("https://baltalist-api.herokuapp.com/lists");
     const data = await result.json();
     setLists(data);
   });
 
   const createList = async () => {
-    const result = await fetch(`http://localhost:3000/lists/`, {
+    const result = await fetch(`https://baltalist-api.herokuapp.com/lists/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
